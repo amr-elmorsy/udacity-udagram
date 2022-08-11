@@ -6,10 +6,10 @@ orbs:
 jobs:
   build:
     docker:
-      - image: "cimg/node:16.16"
+      - image: "cimg/node:16.16.0"
     steps:
       - node/install:
-          node-version: '16'         
+          node-version: '16.16.0'         
       - checkout
       - run:
           name: Install Front-End Dependencies
