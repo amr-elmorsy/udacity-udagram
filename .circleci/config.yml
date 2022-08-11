@@ -1,15 +1,15 @@
 version: 2.1
 orbs:
-  node: circleci/node@16.16.0
+  node: circleci/node@18.7.0
   eb: circleci/aws-elastic-beanstalk@2.0.1
   aws-cli: circleci/aws-cli@3.1.1
 jobs:
   build:
     docker:
-      - image: "cimg/node:16.16.0"
+      - image: "cimg/node:18.7.0"
     steps:
       - node/install:
-          node-version: '16.16.0'         
+          node-version: '18.7.0'         
       - checkout
       - run:
           name: Install Front-End Dependencies
@@ -37,7 +37,7 @@ jobs:
       # more setup needed for aws, node, elastic beanstalk
     steps:
       - node/install:
-          node-version: '16.16' 
+          node-version: '18.7.0' 
       - eb/setup
       - aws-cli/setup
       - checkout
