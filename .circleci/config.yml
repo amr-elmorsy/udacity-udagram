@@ -35,10 +35,7 @@ jobs:
           name: "echo an env var that is part of our project"
           command: |
             echo $POSTGRES_HOST 
-      - run:
-          name: EB Env
-          command: |
-            npm run api:set-env 
+      
   deploy:
     docker:
       - image: "cimg/base:stable"
@@ -49,6 +46,10 @@ jobs:
       - eb/setup
       - aws-cli/setup
       - checkout
+      - run:
+          name: EB Env
+          command: |
+            npm run api:set-env 
       - run:
           name: Deploy App
           command: |
