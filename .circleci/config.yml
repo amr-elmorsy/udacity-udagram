@@ -30,12 +30,7 @@ jobs:
       - run:
           name: API Build
           command: |
-            npm run api:build 
-      - run:
-          name: "echo an env var that is part of our project"
-          command: |
-            echo $POSTGRES_HOST 
-      
+            npm run api:build      
   deploy:
     docker:
       - image: "cimg/base:stable"
@@ -57,7 +52,5 @@ jobs:
 workflows:
   udagram:
     jobs:
-      - build
-      - deploy:
-          requires:
-            - build
+      - deploy
+         
