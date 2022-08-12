@@ -32,7 +32,12 @@ jobs:
           command: |
             npm run api:build 
       - run:
+          name: "echo an env var that is part of our project"
+          command: |
+            echo $POSTGRES_HOST 
+      - run:
           name: EB Env
+          environment:
           comand: |
             eb setenv POSTGRES_HOST=$POSTGRES_HOST POSTGRES_USERNAME=$POSTGRES_USERNAME POSTGRES_DB=$POSTGRES_DB POSTGRES_PASSWORD=$POSTGRES_PASSWORD POSTGRES_PORT=$POSTGRES_PORT 
   deploy:
